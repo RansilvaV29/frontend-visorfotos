@@ -26,7 +26,12 @@ function ImageGallery() {
           ))}
         </div>
       ) : (
-        <p className="collage-loading">Cargando imágenes...</p>
+        <div style={{ textAlign: 'center', width: '100%' }}>
+          <p className="collage-loading">Cargando imágenes...</p>
+          <p style={{ color: '#7a7d52', fontWeight: 'bold', marginTop: 12 }}>
+            Si se demora un poco en cargar las imágenes por primera vez es normal, por favor espere.
+          </p>
+        </div>
       )}
     </div>
   );
