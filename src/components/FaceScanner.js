@@ -67,23 +67,19 @@ const FaceScanner = () => {
       <p className="mt-3" style={{ color: '#7a7d52' }}>{message}</p>
 
       {results.length > 0 && (
-        <div className="row mt-4">
+        <div className="collage-grid" style={{ marginTop: 24 }}>
           {results.map((result, index) => {
             const rawUrl = result.imageUrl || result.url;
             const imageUrl = rawUrl?.startsWith("http")
               ? rawUrl
               : `${process.env.REACT_APP_BACKEND_URL}/${rawUrl}`;
-
             return (
-              <div className="col-md-4" key={index}>
-                <div className="card mb-4 shadow-sm" style={{ background: '#b7b98c', borderRadius: 12, border: '2px solid #7a7d52' }}>
-                  <img
-                    src={imageUrl}
-                    alt={`Coincidencia ${index + 1}`}
-                    className="card-img-top"
-                    style={{ height: "200px", objectFit: "cover", background: '#e6e9d3' }}
-                  />
-                </div>
+              <div className="collage-item" key={index}>
+                <img
+                  src={imageUrl}
+                  alt={`Coincidencia ${index + 1}`}
+                  className="collage-img"
+                />
               </div>
             );
           })}
